@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fighting.cqw.mapper.MsUserMapper">
+  <resultMap id="BaseResultMap" type="com.fighting.cqw.bean.MsUser">
+    <!--@mbg.generated-->
+    <!--@Table ms_user-->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="OPEN_ID" jdbcType="VARCHAR" property="openId" />
+    <result column="UNAME" jdbcType="VARCHAR" property="uname" />
+    <result column="UPHONE" jdbcType="VARCHAR" property="uphone" />
+    <result column="AVATAR_URL" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, OPEN_ID, UNAME, UPHONE, AVATAR_URL, CREATE_TIME, UPDATE_TIME, `STATUS`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ms_user
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ms_user
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_user (OPEN_ID, UNAME, UPHONE, 
+      AVATAR_URL, CREATE_TIME, UPDATE_TIME, 
+      `STATUS`)
+    values (#{openId,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{uphone,jdbcType=VARCHAR}, 
+      #{avatarUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        OPEN_ID,
+      </if>
+      <if test="uname != null">
+        UNAME,
+      </if>
+      <if test="uphone != null">
+        UPHONE,
+      </if>
+      <if test="avatarUrl != null">
+        AVATAR_URL,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null">
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="uphone != null">
+        #{uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fighting.cqw.bean.MsUser">
+    <!--@mbg.generated-->
+    update ms_user
+    <set>
+      <if test="openId != null">
+        OPEN_ID = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null">
+        UNAME = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="uphone != null">
+        UPHONE = #{uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        AVATAR_URL = #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fighting.cqw.bean.MsUser">
+    <!--@mbg.generated-->
+    update ms_user
+    set OPEN_ID = #{openId,jdbcType=VARCHAR},
+      UNAME = #{uname,jdbcType=VARCHAR},
+      UPHONE = #{uphone,jdbcType=VARCHAR},
+      AVATAR_URL = #{avatarUrl,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      `STATUS` = #{status,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

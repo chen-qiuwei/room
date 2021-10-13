@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fighting.cqw.mapper.MsMerchantMapper">
+  <resultMap id="BaseResultMap" type="com.fighting.cqw.bean.MsMerchant">
+    <!--@mbg.generated-->
+    <!--@Table ms_merchant-->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="AUDIT_ID" jdbcType="BIGINT" property="auditId" />
+    <result column="MNAME" jdbcType="VARCHAR" property="mname" />
+    <result column="MPHONE" jdbcType="VARCHAR" property="mphone" />
+    <result column="MACCOUNT" jdbcType="VARCHAR" property="maccount" />
+    <result column="MPWD" jdbcType="VARCHAR" property="mpwd" />
+    <result column="MLEVEL" jdbcType="VARCHAR" property="mlevel" />
+    <result column="MDESC" jdbcType="VARCHAR" property="mdesc" />
+    <result column="AVATAR_URL" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, AUDIT_ID, MNAME, MPHONE, MACCOUNT, MPWD, MLEVEL, MDESC, AVATAR_URL, CREATE_TIME, 
+    UPDATE_TIME, `STATUS`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ms_merchant
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from ms_merchant
+    where MACCOUNT = #{maccount,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ms_merchant
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsMerchant" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_merchant (AUDIT_ID, MNAME, MPHONE, 
+      MACCOUNT, MPWD, MLEVEL, 
+      MDESC, AVATAR_URL, CREATE_TIME, 
+      UPDATE_TIME, `STATUS`)
+    values (#{auditId,jdbcType=BIGINT}, #{mname,jdbcType=VARCHAR}, #{mphone,jdbcType=VARCHAR}, 
+      #{maccount,jdbcType=VARCHAR}, #{mpwd,jdbcType=VARCHAR}, #{mlevel,jdbcType=VARCHAR}, 
+      #{mdesc,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsMerchant" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_merchant
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="auditId != null">
+        AUDIT_ID,
+      </if>
+      <if test="mname != null">
+        MNAME,
+      </if>
+      <if test="mphone != null">
+        MPHONE,
+      </if>
+      <if test="maccount != null">
+        MACCOUNT,
+      </if>
+      <if test="mpwd != null">
+        MPWD,
+      </if>
+      <if test="mlevel != null">
+        MLEVEL,
+      </if>
+      <if test="mdesc != null">
+        MDESC,
+      </if>
+      <if test="avatarUrl != null">
+        AVATAR_URL,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="auditId != null">
+        #{auditId,jdbcType=BIGINT},
+      </if>
+      <if test="mname != null">
+        #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mphone != null">
+        #{mphone,jdbcType=VARCHAR},
+      </if>
+      <if test="maccount != null">
+        #{maccount,jdbcType=VARCHAR},
+      </if>
+      <if test="mpwd != null">
+        #{mpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="mlevel != null">
+        #{mlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="mdesc != null">
+        #{mdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fighting.cqw.bean.MsMerchant">
+    <!--@mbg.generated-->
+    update ms_merchant
+    <set>
+      <if test="auditId != null">
+        AUDIT_ID = #{auditId,jdbcType=BIGINT},
+      </if>
+      <if test="mname != null">
+        MNAME = #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mphone != null">
+        MPHONE = #{mphone,jdbcType=VARCHAR},
+      </if>
+      <if test="maccount != null">
+        MACCOUNT = #{maccount,jdbcType=VARCHAR},
+      </if>
+      <if test="mpwd != null">
+        MPWD = #{mpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="mlevel != null">
+        MLEVEL = #{mlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="mdesc != null">
+        MDESC = #{mdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        AVATAR_URL = #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fighting.cqw.bean.MsMerchant">
+    <!--@mbg.generated-->
+    update ms_merchant
+    set AUDIT_ID = #{auditId,jdbcType=BIGINT},
+      MNAME = #{mname,jdbcType=VARCHAR},
+      MPHONE = #{mphone,jdbcType=VARCHAR},
+      MACCOUNT = #{maccount,jdbcType=VARCHAR},
+      MPWD = #{mpwd,jdbcType=VARCHAR},
+      MLEVEL = #{mlevel,jdbcType=VARCHAR},
+      MDESC = #{mdesc,jdbcType=VARCHAR},
+      AVATAR_URL = #{avatarUrl,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      `STATUS` = #{status,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

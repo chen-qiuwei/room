@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fighting.cqw.mapper.MsMessageMapper">
+  <resultMap id="BaseResultMap" type="com.fighting.cqw.bean.MsMessage">
+    <!--@mbg.generated-->
+    <!--@Table ms_message-->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="SEND_ID" jdbcType="BIGINT" property="sendId" />
+    <result column="SEND_TYPE" jdbcType="VARCHAR" property="sendType" />
+    <result column="RECEIVE_ID" jdbcType="BIGINT" property="receiveId" />
+    <result column="RECEIVE_TYPE" jdbcType="VARCHAR" property="receiveType" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="READ_STATUS" jdbcType="VARCHAR" property="readStatus" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, SEND_ID, SEND_TYPE, RECEIVE_ID, RECEIVE_TYPE, CONTENT, READ_STATUS, CREATE_TIME, 
+    UPDATE_TIME, `STATUS`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ms_message
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="getList" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from ms_message
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ms_message
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_message (SEND_ID, SEND_TYPE, RECEIVE_ID, 
+      RECEIVE_TYPE, CONTENT, READ_STATUS, 
+      CREATE_TIME, UPDATE_TIME, `STATUS`
+      )
+    values (#{sendId,jdbcType=BIGINT}, #{sendType,jdbcType=VARCHAR}, #{receiveId,jdbcType=BIGINT}, 
+      #{receiveType,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{readStatus,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sendId != null">
+        SEND_ID,
+      </if>
+      <if test="sendType != null">
+        SEND_TYPE,
+      </if>
+      <if test="receiveId != null">
+        RECEIVE_ID,
+      </if>
+      <if test="receiveType != null">
+        RECEIVE_TYPE,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+      <if test="readStatus != null">
+        READ_STATUS,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sendId != null">
+        #{sendId,jdbcType=BIGINT},
+      </if>
+      <if test="sendType != null">
+        #{sendType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveId != null">
+        #{receiveId,jdbcType=BIGINT},
+      </if>
+      <if test="receiveType != null">
+        #{receiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="readStatus != null">
+        #{readStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fighting.cqw.bean.MsMessage">
+    <!--@mbg.generated-->
+    update ms_message
+    <set>
+      <if test="sendId != null">
+        SEND_ID = #{sendId,jdbcType=BIGINT},
+      </if>
+      <if test="sendType != null">
+        SEND_TYPE = #{sendType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveId != null">
+        RECEIVE_ID = #{receiveId,jdbcType=BIGINT},
+      </if>
+      <if test="receiveType != null">
+        RECEIVE_TYPE = #{receiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="readStatus != null">
+        READ_STATUS = #{readStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fighting.cqw.bean.MsMessage">
+    <!--@mbg.generated-->
+    update ms_message
+    set SEND_ID = #{sendId,jdbcType=BIGINT},
+      SEND_TYPE = #{sendType,jdbcType=VARCHAR},
+      RECEIVE_ID = #{receiveId,jdbcType=BIGINT},
+      RECEIVE_TYPE = #{receiveType,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      READ_STATUS = #{readStatus,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      `STATUS` = #{status,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
