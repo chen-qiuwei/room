@@ -6,6 +6,8 @@ import com.fighting.cqw.bean.MsMerchant;
 import com.fighting.cqw.mapper.MsMerchantMapper;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @Classname MsMerchantService
  *@Description TODO
@@ -19,6 +21,9 @@ public class MsMerchantService{
     @Resource
     private MsMerchantMapper msMerchantMapper;
 
+
+
+    public List<MsMerchant> getList(){return msMerchantMapper.getList();};
     
     public int deleteByPrimaryKey(Long id) {
         return msMerchantMapper.deleteByPrimaryKey(id);

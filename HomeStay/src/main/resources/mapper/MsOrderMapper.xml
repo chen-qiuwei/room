@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fighting.cqw.mapper.MsOrderMapper">
+  <resultMap id="BaseResultMap" type="com.fighting.cqw.bean.MsOrder">
+    <!--@mbg.generated-->
+    <!--@Table ms_order-->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="RID" jdbcType="BIGINT" property="rid" />
+    <result column="OPEN_ID" jdbcType="VARCHAR" property="openId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CARDNO" jdbcType="VARCHAR" property="cardno" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="ORDER_CODE" jdbcType="VARCHAR" property="orderCode" />
+    <result column="DAY_COUNT" jdbcType="VARCHAR" property="dayCount" />
+    <result column="PRICE" jdbcType="FLOAT" property="price" />
+    <result column="COMMENT" jdbcType="VARCHAR" property="comment" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="PAY_TIME" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="CONFIRM_TIME" jdbcType="TIMESTAMP" property="confirmTime" />
+    <result column="BEGIN_TIME" jdbcType="TIMESTAMP" property="beginTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="READ_STATUS" jdbcType="VARCHAR" property="readStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, RID, OPEN_ID, `NAME`, CARDNO, PHONE, ORDER_CODE, DAY_COUNT, PRICE, `COMMENT`, 
+    CREATE_TIME, UPDATE_TIME, PAY_TIME, CONFIRM_TIME, BEGIN_TIME, END_TIME, `STATUS`, 
+    READ_STATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ms_order
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ms_order
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_order (RID, OPEN_ID, `NAME`, 
+      CARDNO, PHONE, ORDER_CODE, 
+      DAY_COUNT, PRICE, `COMMENT`, 
+      CREATE_TIME, UPDATE_TIME, PAY_TIME, 
+      CONFIRM_TIME, BEGIN_TIME, END_TIME, 
+      `STATUS`, READ_STATUS)
+    values (#{rid,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{cardno,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{orderCode,jdbcType=VARCHAR}, 
+      #{dayCount,jdbcType=VARCHAR}, #{price,jdbcType=FLOAT}, #{comment,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{confirmTime,jdbcType=TIMESTAMP}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{readStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="openId != null">
+        OPEN_ID,
+      </if>
+      <if test="name != null">
+        `NAME`,
+      </if>
+      <if test="cardno != null">
+        CARDNO,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="orderCode != null">
+        ORDER_CODE,
+      </if>
+      <if test="dayCount != null">
+        DAY_COUNT,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="comment != null">
+        `COMMENT`,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="payTime != null">
+        PAY_TIME,
+      </if>
+      <if test="confirmTime != null">
+        CONFIRM_TIME,
+      </if>
+      <if test="beginTime != null">
+        BEGIN_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+      <if test="readStatus != null">
+        READ_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null">
+        #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dayCount != null">
+        #{dayCount,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=FLOAT},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmTime != null">
+        #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginTime != null">
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="readStatus != null">
+        #{readStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fighting.cqw.bean.MsOrder">
+    <!--@mbg.generated-->
+    update ms_order
+    <set>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null">
+        OPEN_ID = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `NAME` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null">
+        CARDNO = #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCode != null">
+        ORDER_CODE = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dayCount != null">
+        DAY_COUNT = #{dayCount,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=FLOAT},
+      </if>
+      <if test="comment != null">
+        `COMMENT` = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmTime != null">
+        CONFIRM_TIME = #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginTime != null">
+        BEGIN_TIME = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="readStatus != null">
+        READ_STATUS = #{readStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fighting.cqw.bean.MsOrder">
+    <!--@mbg.generated-->
+    update ms_order
+    set RID = #{rid,jdbcType=BIGINT},
+      OPEN_ID = #{openId,jdbcType=VARCHAR},
+      `NAME` = #{name,jdbcType=VARCHAR},
+      CARDNO = #{cardno,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      ORDER_CODE = #{orderCode,jdbcType=VARCHAR},
+      DAY_COUNT = #{dayCount,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=FLOAT},
+      `COMMENT` = #{comment,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      PAY_TIME = #{payTime,jdbcType=TIMESTAMP},
+      CONFIRM_TIME = #{confirmTime,jdbcType=TIMESTAMP},
+      BEGIN_TIME = #{beginTime,jdbcType=TIMESTAMP},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      `STATUS` = #{status,jdbcType=VARCHAR},
+      READ_STATUS = #{readStatus,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

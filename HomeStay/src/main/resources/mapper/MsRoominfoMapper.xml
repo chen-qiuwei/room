@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fighting.cqw.mapper.MsRoominfoMapper">
+  <resultMap id="BaseResultMap" type="com.fighting.cqw.bean.MsRoominfo">
+    <!--@mbg.generated-->
+    <!--@Table ms_roominfo-->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="MID" jdbcType="BIGINT" property="mid" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="DES" jdbcType="VARCHAR" property="des" />
+    <result column="PRICE" jdbcType="FLOAT" property="price" />
+    <result column="IS_ACTIVE" jdbcType="VARCHAR" property="isActive" />
+    <result column="SALES" jdbcType="INTEGER" property="sales" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="LIKE_COUNT" jdbcType="INTEGER" property="likeCount" />
+    <result column="COMMENT_COUNT" jdbcType="INTEGER" property="commentCount" />
+    <result column="BEGIN_TIME" jdbcType="DATE" property="beginTime" />
+    <result column="END_TIME" jdbcType="DATE" property="endTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="AUDIT_STATUS" jdbcType="VARCHAR" property="auditStatus" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, MID, TITLE, DES, PRICE, IS_ACTIVE, SALES, `TYPE`, LIKE_COUNT, COMMENT_COUNT, 
+    BEGIN_TIME, END_TIME, CREATE_TIME, UPDATE_TIME, AUDIT_STATUS, `STATUS`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ms_roominfo
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ms_roominfo
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsRoominfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_roominfo (MID, TITLE, DES, 
+      PRICE, IS_ACTIVE, SALES, 
+      `TYPE`, LIKE_COUNT, COMMENT_COUNT, 
+      BEGIN_TIME, END_TIME, CREATE_TIME, 
+      UPDATE_TIME, AUDIT_STATUS, `STATUS`
+      )
+    values (#{mid,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
+      #{price,jdbcType=FLOAT}, #{isActive,jdbcType=VARCHAR}, #{sales,jdbcType=INTEGER}, 
+      #{type,jdbcType=VARCHAR}, #{likeCount,jdbcType=INTEGER}, #{commentCount,jdbcType=INTEGER}, 
+      #{beginTime,jdbcType=DATE}, #{endTime,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{auditStatus,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.fighting.cqw.bean.MsRoominfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ms_roominfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        MID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="des != null">
+        DES,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="isActive != null">
+        IS_ACTIVE,
+      </if>
+      <if test="sales != null">
+        SALES,
+      </if>
+      <if test="type != null">
+        `TYPE`,
+      </if>
+      <if test="likeCount != null">
+        LIKE_COUNT,
+      </if>
+      <if test="commentCount != null">
+        COMMENT_COUNT,
+      </if>
+      <if test="beginTime != null">
+        BEGIN_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null">
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=FLOAT},
+      </if>
+      <if test="isActive != null">
+        #{isActive,jdbcType=VARCHAR},
+      </if>
+      <if test="sales != null">
+        #{sales,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="beginTime != null">
+        #{beginTime,jdbcType=DATE},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fighting.cqw.bean.MsRoominfo">
+    <!--@mbg.generated-->
+    update ms_roominfo
+    <set>
+      <if test="mid != null">
+        MID = #{mid,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null">
+        DES = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=FLOAT},
+      </if>
+      <if test="isActive != null">
+        IS_ACTIVE = #{isActive,jdbcType=VARCHAR},
+      </if>
+      <if test="sales != null">
+        SALES = #{sales,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `TYPE` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        LIKE_COUNT = #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        COMMENT_COUNT = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="beginTime != null">
+        BEGIN_TIME = #{beginTime,jdbcType=DATE},
+      </if>
+      <if test="endTime != null">
+        END_TIME = #{endTime,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        AUDIT_STATUS = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fighting.cqw.bean.MsRoominfo">
+    <!--@mbg.generated-->
+    update ms_roominfo
+    set MID = #{mid,jdbcType=BIGINT},
+      TITLE = #{title,jdbcType=VARCHAR},
+      DES = #{des,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=FLOAT},
+      IS_ACTIVE = #{isActive,jdbcType=VARCHAR},
+      SALES = #{sales,jdbcType=INTEGER},
+      `TYPE` = #{type,jdbcType=VARCHAR},
+      LIKE_COUNT = #{likeCount,jdbcType=INTEGER},
+      COMMENT_COUNT = #{commentCount,jdbcType=INTEGER},
+      BEGIN_TIME = #{beginTime,jdbcType=DATE},
+      END_TIME = #{endTime,jdbcType=DATE},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      AUDIT_STATUS = #{auditStatus,jdbcType=VARCHAR},
+      `STATUS` = #{status,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -36,6 +36,13 @@
     from ms_merchant
     where MACCOUNT = #{maccount,jdbcType=VARCHAR}
   </select>
+  <select id="getList" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from ms_merchant
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--@mbg.generated-->
     delete from ms_merchant

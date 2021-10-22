@@ -1,16 +1,14 @@
 package com.fighting.cqw.mapper;
 
-import com.fighting.cqw.bean.MsMerchant;
-
-import java.util.List;
+import com.fighting.cqw.bean.MsNews;
 
 /**
- * @Classname MsMerchantMapper
+ * @Classname MsNewsMapper
  *@Description TODO
- *@Date 2021/10/11 2:56 下午
+ *@Date 2021/10/22 5:02 下午
  *@author  kufeigg
  */
-public interface MsMerchantMapper {
+public interface MsNewsMapper {
     /**
      * delete by primary key
      * @param id primaryKey
@@ -23,37 +21,33 @@ public interface MsMerchantMapper {
      * @param record the record
      * @return insert count
      */
-    int insert(MsMerchant record);
+    int insert(MsNews record);
 
     /**
      * insert record to table selective
      * @param record the record
      * @return insert count
      */
-    int insertSelective(MsMerchant record);
+    int insertSelective(MsNews record);
 
     /**
      * select by primary key
      * @param id primary key
      * @return object by primary key
      */
-    MsMerchant selectByPrimaryKey(Long id);
+    MsNews selectByPrimaryKey(Long id);
 
     /**
      * update record selective
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKeySelective(MsMerchant record);
+    int updateByPrimaryKeySelective(MsNews record);
 
     /**
      * update record
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKey(MsMerchant record);
-
-    MsMerchant selectByAccount(String maccount);
-
-    List<MsMerchant> getList();
+    int updateByPrimaryKey(MsNews record);
 }
